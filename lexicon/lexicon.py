@@ -13,11 +13,12 @@ class Lexicon(object):
             return None
 
     def split(self, sentence):
-      return sentence.split(" ")
+        return sentence.split(" ")
 
     def scan(self, sentence):
         sentence_words = self.split(sentence)
         labeled_word = []
+
         for word in sentence_words:
             if self.convert_number(word):
                 labeled_word.append(('number', word))
@@ -28,9 +29,9 @@ class Lexicon(object):
             elif word in directions:
                 labeled_word.append(('direction', word))
             else:
-                labeled_word = (('error', word))
+                labeled_word.append(('error', word))
         return labeled_word
 
 lexicon = Lexicon()
-result = lexicon.scan("1 go door south")
-print result
+#result = lexicon.scan("1 go door south UIO")
+#print result
